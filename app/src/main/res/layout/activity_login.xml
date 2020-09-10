@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".LoginActivity">
+
+    <!--toolbar-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:padding="@dimen/_8sdp"
+        android:background="@drawable/shape_rect01"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Login"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/colorWhite"
+            />
+
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_marginTop="@dimen/_45sdp"
+        android:id="@+id/iconIV"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:background="@drawable/shape_circle01"
+        android:src="@drawable/ic_key_white"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_40sdp"
+        />
+    <EditText
+        android:id="@+id/emailET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/shape_rect02"
+        android:layout_below="@id/iconIV"
+        android:hint="Email"
+        android:padding="@dimen/_8sdp"
+        android:drawableStart="@drawable/ic_mail_gray"
+        android:drawablePadding="@dimen/_5sdp"
+        android:inputType="textEmailAddress"
+        />
+
+    <EditText
+        android:id="@+id/passwordET"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/shape_rect02"
+        android:layout_below="@id/emailET"
+        android:hint="password"
+        android:padding="@dimen/_8sdp"
+        android:drawableStart="@drawable/ic_lock_gray"
+        android:drawablePadding="@dimen/_5sdp"
+        android:inputType="textPassword"
+        />
+
+   >
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordET"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="login"
+        android:minWidth="@dimen/_100sdp"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
+    <TextView
+        android:id="@+id/noAccountTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_7sdp"
+        android:text="Not have Account? Register"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>
