@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView noAccountTV;
     private Button loginBtn;
 
-    FirebaseUser firebaseUser;
+
 
     private FirebaseAuth firebaseAuth;
 
@@ -33,19 +34,20 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
 
         firebaseAuth=FirebaseAuth.getInstance();
 
 
-        firebaseUser =firebaseAuth.getCurrentUser();
+        FirebaseUser firebaseUser=firebaseAuth.getCurrentUser();
 
-        if(firebaseUser!=null){
-            startActivity(new Intent(getApplicationContext(),ShowAlbumsNamesActivity.class));
-            finish();
+        if(firebaseUser==null){
+            initValue();
         } else {
 
-           initValue();
+          startActivity(new Intent(getApplicationContext(),ShowAlbumsNamesActivity.class));
         }
 
 
@@ -108,7 +110,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(AuthResult authResult) {
 
-                        //logged in successgully
+                        progressDialog.dismiss();
+
+                        startActivity(new Intent(LoginActivity.this,ShowAlbumsNamesActivity.class));
 
                     }
                 })
